@@ -6,11 +6,14 @@ import * as messageRepo from './messageRepository';
 
 import { config } from '../config';
 
+import pino from 'pino';
+
 export async function connectToWhatsApp() {
     console.log(`🚀 Iniciando WhatsApp (Baileys)...`);
     const { state, saveCreds } = await useMultiFileAuthState(config.whatsapp.authDir);
 
     const sock = makeWASocket({
+        // logger: pino({ level: 'silent' }), // Removendo temporariamente para debug
         printQRInTerminal: config.whatsapp.printQR,
         auth: state,
     });
@@ -45,6 +48,12 @@ export async function connectToWhatsApp() {
                 const isFromMe = msg.key.fromMe;
 
                 if (!userMessage) continue;
+
+                // --- Segurança: Limite de tamanho (Evita travar com textos gigantes) ---
+                if (userMessage.length > 2000) {
+                    console.warn(`⚠️ Mensagem ignorada por ser muito longa (${userMessage.length} chars) de ${jid}`);
+                    continue;
+                }
 
                 console.log(`📨 Mensagem de ${isFromMe ? 'MIM' : 'OUTRO'} (${jid}): ${userMessage}`);
 

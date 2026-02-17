@@ -1,4 +1,4 @@
-# 🤖 WhatsApp AI Agent
+# 💃 Donna - WhatsApp AI Agent
 
 Um assistente inteligente para WhatsApp construído com **Node.js**, **Baileys**, **Groq AI (Llama 3)** e **PostgreSQL**.
 
@@ -39,14 +39,10 @@ Este projeto permite transformar seu WhatsApp em um bot capaz de responder mensa
    ```
 
 2. **Configure as Variáveis de Ambiente**
-   Crie um arquivo `.env` na raiz do projeto (copie o `.env.example` se houver) e preencha:
-   ```env
-   GROQ_API_KEY=sua_chave_gsk_aqui
-   POSTGRES_USER=user
-   POSTGRES_PASSWORD=password
-   POSTGRES_DB=whatsapp_agent
-   POSTGRES_HOST=localhost
-   POSTGRES_PORT=5433
+   Copie o arquivo de exemplo e preencha com suas credenciais:
+   ```bash
+   cp .env.example .env
+   # Edite o arquivo .env com sua chave da Groq e dados do banco
    ```
 
 3. **Inicie o Banco de Dados**

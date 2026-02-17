@@ -1,6 +1,28 @@
-.env
+# Dependências
 node_modules/
 dist/
+
+# Ambiente e Configuração
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Banco de Dados e Sessões (CRÍTICO)
 auth_info_baileys/
 postgres_data/
+
+# Logs e Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Sistema
 .DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
