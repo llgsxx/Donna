@@ -23,10 +23,4 @@ export const config = {
         password: process.env.POSTGRES_PASSWORD || 'password',
         port: parseInt(process.env.POSTGRES_PORT || '5433'),
     },
-};
-
-// Validação básica
-if (!config.ai.groqKey) {
-    console.error('❌ ERRO CRÍTICO: GROQ_API_KEY não encontrada no .env');
-    process.exit(1);
 }
