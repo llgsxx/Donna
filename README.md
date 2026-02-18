@@ -2,7 +2,7 @@
 
 Um assistente inteligente para WhatsApp construído com **Node.js**, **Baileys**, **Groq AI (Llama 3)** e **PostgreSQL**.
 
-Este projeto permite transformar seu WhatsApp em um bot capaz de responder mensagens automaticamente com contexto, salvar histórico de conversas e obedecer comandos de controle. Inclui também um **painel web** para monitorar os logs em tempo real.
+Este projeto permite transformar seu WhatsApp em um bot capaz de responder mensagens automaticamente com contexto, salvar histórico de conversas e obedecer comandos de controle.
 
 ## ✨ Funcionalidades
 
@@ -12,7 +12,7 @@ Este projeto permite transformar seu WhatsApp em um bot capaz de responder mensa
   - `#stopIA`: Pausa a IA para o chat atual.
   - `#startIA`: Reativa a IA.
   - `#limpa`: Apaga a memória (histórico) do chat atual.
-- 📊 **Dashboard de Logs**: Interface web em Next.js para ver as mensagens chegando em tempo real.
+
 - 🔒 **Privacidade**: As mensagens enviadas por VOCÊ (`fromMe`) não geram resposta da IA, mas são salvas para manter o contexto.
 
 ## 🛠️ Tecnologias
@@ -21,7 +21,7 @@ Este projeto permite transformar seu WhatsApp em um bot capaz de responder mensa
 - **WhatsApp**: @whiskeysockets/baileys (Web API simulation)
 - **AI**: Groq SDK
 - **Database**: PostgreSQL (Docker)
-- **Dashboard**: Next.js, TailwindCSS
+
 
 ## 🚀 Como Instalar e Rodar
 
@@ -55,8 +55,6 @@ Este projeto permite transformar seu WhatsApp em um bot capaz de responder mensa
 4. **Instale as Dependências**
    ```bash
    npm install
-   # Entra na pasta do dashboard e instala também
-   cd dashboard && npm install && cd ..
    ```
 
 5. **Inicie o Agente**
@@ -65,13 +63,7 @@ Este projeto permite transformar seu WhatsApp em um bot capaz de responder mensa
    ```
    *Um **QR Code** aparecerá no terminal. Escaneie-o com seu WhatsApp (Menu > Aparelhos Conectados > Conectar Aparelho).*
 
-6. **Inicie o Dashboard (Opcional)**
-   Em outro terminal, rode:
-   ```bash
-   cd dashboard
-   npm run dev
-   ```
-   Acesse `http://localhost:3000`.
+
 
 ## 🧠 Personalização
 

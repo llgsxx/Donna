@@ -13,7 +13,7 @@ export async function connectToWhatsApp() {
     const { state, saveCreds } = await useMultiFileAuthState(config.whatsapp.authDir);
 
     const sock = makeWASocket({
-        // logger: pino({ level: 'silent' }), // Removendo temporariamente para debug
+        logger: pino({ level: 'silent' }), // Removendo temporariamente para debug
         printQRInTerminal: config.whatsapp.printQR,
         auth: state,
     });
@@ -55,7 +55,7 @@ export async function connectToWhatsApp() {
                     continue;
                 }
 
-                console.log(`📨 Mensagem de ${isFromMe ? 'MIM' : 'OUTRO'} (${jid}): ${userMessage}`);
+                // console.log(`📨 Mensagem de ${isFromMe ? 'MIM' : 'OUTRO'} (${jid}): ${userMessage}`);
 
                 // --- Lógica de Comandos de Controle (Funciona para MIM e OUTROS) ---
                 const command = userMessage.trim().toLowerCase();
@@ -80,10 +80,7 @@ export async function connectToWhatsApp() {
 
                 // --- Se for mensagem MINHA (fromMe), só salva no banco e NÃO gera resposta IA ---
                 if (isFromMe) {
-                    await messageRepo.saveMessage(jid, 'model', userMessage); // Salva como 'model' ou 'user'? 
-                    // Se EU respondo, tecnicamente eu sou o 'model' (agente humano) assumindo o controle.
-                    // Mas para o histórico ficar coeso, talvez seja melhor salvar como 'assistant' se a ideia é treinar o modelo,
-                    // mas aqui vamos salvar como 'model' para o histórico da IA saber o que foi respondido.
+                    await messageRepo.saveMessage(jid, 'model', userMessage);
                     return;
                 }
 
